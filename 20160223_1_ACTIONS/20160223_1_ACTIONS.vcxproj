@@ -85,6 +85,7 @@
   <ItemGroup>
     <ClInclude Include="ActionBase.h" />
     <ClInclude Include="ActionMove.h" />
+    <ClInclude Include="ActionSequence.h" />
     <ClInclude Include="Asciitok.h" />
     <ClInclude Include="AseFrame.h" />
     <ClInclude Include="AseLoader.h" />
@@ -127,6 +128,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ActionMove.cpp" />
+    <ClCompile Include="ActionSequence.cpp" />
     <ClCompile Include="AseFrame.cpp" />
     <ClCompile Include="AseLoader.cpp" />
     <ClCompile Include="Camera.cpp" />

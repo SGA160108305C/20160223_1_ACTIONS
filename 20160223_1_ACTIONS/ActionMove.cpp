@@ -35,6 +35,10 @@ void ActionMove::Update()
 	{
 		target->SetPosition(goal);
 		isStart = false;
+		if (actionDeligate)
+		{
+			actionDeligate->OnActionFinish(this);
+		}
 		return;
 	}
 

@@ -141,6 +141,9 @@
     <ClInclude Include="ActionMove.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="ActionSequence.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AseFrame.cpp">
@@ -246,6 +249,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="GameObject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ActionSequence.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
