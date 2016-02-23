@@ -21,6 +21,9 @@
 #include "Grid.h"
 
 #include "GameObject.h"
+#include "ActionBase.h"
+#include "ActionMove.h"
+
 #include "CubeMan.h"
 #include "CubeMan_Light.h"
 

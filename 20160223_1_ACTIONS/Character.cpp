@@ -38,9 +38,6 @@ void Character::Update()
 	D3DXVECTOR3 baseDirection(0, 0, 1);
 	D3DXVec3TransformCoord(&direction, &baseDirection, &world);
 
-	rotationAngle -= (rotationSpeed * tick);
-	position -= (direction * moveSpeed * tick);
-
 	//이동 처리
 	if ( ( GetAsyncKeyState('A') & 0x8000 ) != 0 )
 	{
@@ -54,13 +51,27 @@ void Character::Update()
 	{
 		position -= ( direction * moveSpeed * tick );		
 	}
-	else if ( ( GetAsyncKeyState('S') & 0x8000 ) != 0 )
+	else if ( ( GetAsyncKeyState(VK_SPACE) & 0x8000 ) != 0 )
 	{
-		position += ( direction * moveSpeed * tick );		
+		if (keyWasPressed == false)
+		{
+			OutputDebugStringA("Once!\n");
+			if (action)
+			{
+				action->Start();
+			}
+		}
+
+		keyWasPressed = true;
+	}
+
+	else
+	{
+		keyWasPressed = false;
 	}
 
 	D3DXMATRIX translation;
-	D3DXMatrixTranslation(&translation, position.x + 1.0f, position.y, position.z);
+	D3DXMatrixTranslation(&translation, position.x, position.y, position.z);
 	world *= translation;
 	
 	if ( aseRootFrame )

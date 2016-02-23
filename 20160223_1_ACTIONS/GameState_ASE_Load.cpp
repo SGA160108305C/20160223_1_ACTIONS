@@ -22,6 +22,14 @@ void GameState_ASE_Load::Initialize()
 	{
 		girl = new Character;
 		girl->Initialize();		
+
+		ActionMove* move = new ActionMove;
+		move->SetStart(D3DXVECTOR3(0, 0, 0));
+		move->SetGoal(D3DXVECTOR3(0, 0, 15));
+		move->SetDurationTime(2.0f);
+		move->SetTarget(girl);
+
+		girl->SetAction(move);
 	}
 	Reset();
 }
@@ -58,7 +66,7 @@ void GameState_ASE_Load::Render()
 
 void GameState_ASE_Load::OnEnterState()
 {
-	GameManager::GetCamera()->SetDistance(5.0f);
+	GameManager::GetCamera()->SetDistance(30.0f);
 	Initialize();
 }
 

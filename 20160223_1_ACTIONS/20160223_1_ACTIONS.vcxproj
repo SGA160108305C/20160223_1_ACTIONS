@@ -83,6 +83,8 @@
     <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ActionBase.h" />
+    <ClInclude Include="ActionMove.h" />
     <ClInclude Include="Asciitok.h" />
     <ClInclude Include="AseFrame.h" />
     <ClInclude Include="AseLoader.h" />
@@ -124,6 +126,7 @@
     <ClInclude Include="Triangle.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="ActionMove.cpp" />
     <ClCompile Include="AseFrame.cpp" />
     <ClCompile Include="AseLoader.cpp" />
     <ClCompile Include="Camera.cpp" />
@@ -139,6 +142,7 @@
     <ClCompile Include="Cube_VertexBuffer.cpp" />
     <ClCompile Include="Font.cpp" />
     <ClCompile Include="GameManager.cpp" />
+    <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="GameStateManager.cpp" />
     <ClCompile Include="GameState_ASE_Load.cpp" />
     <ClCompile Include="GameState_DX_Base.cpp" />

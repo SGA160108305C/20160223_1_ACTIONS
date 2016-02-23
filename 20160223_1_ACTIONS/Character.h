@@ -1,6 +1,8 @@
 #pragma once
+#include "stdafx.h"
 #include "GameObject.h"
 #include "AseFrame.h"
+#include "ActionMove.h"
 
 class Character :
 	public GameObject
