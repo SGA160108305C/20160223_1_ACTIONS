@@ -22,7 +22,7 @@ void GameStateManager::Initialize()
 	gameStates[GameStateType::STATE_PICK_BASE] = new GameState_Picking;
 	gameStates[GameStateType::STATE_VERTEX_BUFFER] = new GameState_VertexBuffer;	
 	gameStates[GameStateType::STAET_ASE_LOAD] = new GameState_ASE_Load;
-	gameStates[GameStateType::STATE_ACTIONS] = nullptr;
+	gameStates[GameStateType::STATE_ACTIONS] = new GameState_Actions;
 	gameStates[GameStateType::STATE_COLLISION] = nullptr;
 	gameStates[GameStateType::STATE_PICK_MOUSE] = nullptr;
 	gameStates[GameStateType::STATE_UI] = nullptr;
@@ -35,7 +35,7 @@ void GameStateManager::Initialize()
 	gameStates[GameStateType::STATE_SHADER] = nullptr;
 	gameStates[GameStateType::STATE_THREAD] = nullptr;
 	
-	currentState = GameStateType::STAET_ASE_LOAD;
+	currentState = GameStateType::STATE_ACTIONS;
 	gameStates[currentState]->OnEnterState();
 }
 

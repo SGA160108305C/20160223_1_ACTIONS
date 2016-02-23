@@ -144,6 +144,9 @@
     <ClInclude Include="ActionSequence.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="GameState_Actions.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AseFrame.cpp">
@@ -252,6 +255,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="ActionSequence.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GameState_Actions.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

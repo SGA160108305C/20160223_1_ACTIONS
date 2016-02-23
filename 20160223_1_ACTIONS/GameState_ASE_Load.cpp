@@ -13,31 +13,23 @@ GameState_ASE_Load::~GameState_ASE_Load()
 
 void GameState_ASE_Load::Initialize()
 {
-	if ( grid == nullptr )
+	if (grid == nullptr)
 	{
 		grid = new Grid;
 		grid->Initialize();
-	}	
-	if ( girl == nullptr )
+	}
+	if (girl == nullptr)
 	{
 		girl = new Character;
-		girl->Initialize();		
-
-		ActionMove* move = new ActionMove;
-		move->SetStart(D3DXVECTOR3(0, 0, 0));
-		move->SetGoal(D3DXVECTOR3(0, 0, 15));
-		move->SetDurationTime(2.0f);
-		move->SetTarget(girl);
-
-		girl->SetAction(move);
+		girl->Initialize();
 	}
 	Reset();
 }
 
 void GameState_ASE_Load::Destroy()
-{	
+{
 	SAFE_DELETE(girl);
-	SAFE_DELETE(grid);	
+	SAFE_DELETE(grid);
 }
 
 void GameState_ASE_Load::Reset()
@@ -46,7 +38,7 @@ void GameState_ASE_Load::Reset()
 
 void GameState_ASE_Load::Update()
 {
-	if ( girl )
+	if (girl)
 	{
 		girl->Update();
 	}
@@ -54,11 +46,11 @@ void GameState_ASE_Load::Update()
 
 void GameState_ASE_Load::Render()
 {
-	if ( grid )
+	if (grid)
 	{
 		grid->Render();
 	}
-	if ( girl )
+	if (girl)
 	{
 		girl->Render();
 	}
@@ -66,7 +58,7 @@ void GameState_ASE_Load::Render()
 
 void GameState_ASE_Load::OnEnterState()
 {
-	GameManager::GetCamera()->SetDistance(30.0f);
+	GameManager::GetCamera()->SetDistance(5.0f);
 	Initialize();
 }
 

@@ -9,6 +9,7 @@
 #include "GameState_Picking.h"
 #include "GameState_VertexBuffer.h"
 #include "GameState_ASE_Load.h"
+#include "GameState_Actions.h"
 
 
 enum GameStateType
