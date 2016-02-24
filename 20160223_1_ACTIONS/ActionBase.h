@@ -1,7 +1,7 @@
 #pragma once
 #include "GameObject.h"
 
-class ActionDeligate
+class ActionDelegate
 {
 public:
 	virtual void OnActionFinish(ActionBase* sender) = 0;
@@ -10,7 +10,6 @@ public:
 class ActionBase
 {
 public:
-
 	ActionBase(){}
 	virtual ~ActionBase(){}
 
@@ -20,12 +19,11 @@ public:
 
 	inline GameObject* GetTarget() { return target; }
 	inline void SetTarget(GameObject* _target) { target = _target; }
-	inline void SetDeligate(ActionDeligate* _deligate) { actionDeligate = _deligate; }
-
+	inline void SetDelegate(ActionDelegate* _delegate){ actionDelegate = _delegate; }
 protected:
 	bool isStart = false;
 	GameObject* target = nullptr;
 
-	ActionDeligate* actionDeligate = nullptr;
+	ActionDelegate* actionDelegate = nullptr;
 };
 

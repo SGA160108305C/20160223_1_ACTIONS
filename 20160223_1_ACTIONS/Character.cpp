@@ -51,7 +51,11 @@ void Character::Update()
 	{
 		position -= ( direction * moveSpeed * tick );		
 	}
-	else if ( ( GetAsyncKeyState(VK_SPACE) & 0x8000 ) != 0 )
+	else if ( ( GetAsyncKeyState('S') & 0x8000 ) != 0 )
+	{
+		position += ( direction * moveSpeed * tick );		
+	}
+	if ((GetAsyncKeyState(VK_SPACE) & 0x8000) != 0)
 	{
 		if (keyWasPressed == false)
 		{

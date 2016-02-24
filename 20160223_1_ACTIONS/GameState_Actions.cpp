@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "GameState_Actions.h"
+#include "ActionMove.h"
 
 
 GameState_Actions::GameState_Actions()
@@ -23,13 +24,33 @@ void GameState_Actions::Initialize()
 		girl = new Character;
 		girl->Initialize();
 
-		ActionMove* move = new ActionMove;
-		move->SetStart(D3DXVECTOR3(0, 0, 0));
-		move->SetGoal(D3DXVECTOR3(0, 0, 15));
-		move->SetDurationTime(2.0f);
-		move->SetTarget(girl);
+		ActionSequence* sequence = new ActionSequence;
 
-		girl->SetAction(move);
+		ActionMove* move1 = new ActionMove;
+		move1->SetStart(D3DXVECTOR3(0, 0, 0));
+		move1->SetGoal(D3DXVECTOR3(0, 0, -15));
+		move1->SetDurationTime(1.0f);
+		move1->SetTarget(girl);
+		move1->SetDelegate(sequence);
+		sequence->AddAction(move1);
+
+		ActionMove* move2 = new ActionMove;
+		move2->SetStart(D3DXVECTOR3(0, 0, -15));
+		move2->SetGoal(D3DXVECTOR3(10, 0, -15));
+		move2->SetDurationTime(1.0f);
+		move2->SetTarget(girl);
+		move2->SetDelegate(sequence);
+		sequence->AddAction(move2);
+
+		ActionMove* move3 = new ActionMove;
+		move3->SetStart(D3DXVECTOR3(10, 0, -15));
+		move3->SetGoal(D3DXVECTOR3(10, 0, 0));
+		move3->SetDurationTime(1.0f);
+		move3->SetTarget(girl);
+		move3->SetDelegate(sequence);
+		sequence->AddAction(move3);
+
+		girl->SetAction(sequence);
 	}
 	Reset();
 }
@@ -66,7 +87,7 @@ void GameState_Actions::Render()
 
 void GameState_Actions::OnEnterState()
 {
-	GameManager::GetCamera()->SetDistance(30.0f);
+	GameManager::GetCamera()->SetDistance(20.0f);
 	Initialize();
 }
 

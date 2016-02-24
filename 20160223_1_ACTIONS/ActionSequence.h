@@ -2,11 +2,13 @@
 #include "ActionBase.h"
 
 class ActionSequence :
-	public ActionBase, public ActionDeligate
+	public ActionBase, public ActionDelegate
 {
 public:
 	ActionSequence();
 	virtual ~ActionSequence();
+	
+	virtual void AddAction(ActionBase* action);
 
 	virtual void Start() override;
 	virtual void Update() override;
