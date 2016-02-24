@@ -28,27 +28,67 @@ void GameState_Actions::Initialize()
 
 		ActionMove* move1 = new ActionMove;
 		move1->SetStart(D3DXVECTOR3(0, 0, 0));
-		move1->SetGoal(D3DXVECTOR3(0, 0, -15));
+		move1->SetGoal(D3DXVECTOR3(0, 0, 15));
 		move1->SetDurationTime(1.0f);
 		move1->SetTarget(girl);
 		move1->SetDelegate(sequence);
 		sequence->AddAction(move1);
 
 		ActionMove* move2 = new ActionMove;
-		move2->SetStart(D3DXVECTOR3(0, 0, -15));
-		move2->SetGoal(D3DXVECTOR3(10, 0, -15));
+		move2->SetStart(D3DXVECTOR3(0, 0, 15));
+		move2->SetGoal(D3DXVECTOR3(-10, 0, 10));
 		move2->SetDurationTime(1.0f);
 		move2->SetTarget(girl);
 		move2->SetDelegate(sequence);
 		sequence->AddAction(move2);
 
 		ActionMove* move3 = new ActionMove;
-		move3->SetStart(D3DXVECTOR3(10, 0, -15));
-		move3->SetGoal(D3DXVECTOR3(10, 0, 0));
+		move3->SetStart(D3DXVECTOR3(-10, 0, 10));
+		move3->SetGoal(D3DXVECTOR3(-10, 0, -10));
 		move3->SetDurationTime(1.0f);
 		move3->SetTarget(girl);
 		move3->SetDelegate(sequence);
 		sequence->AddAction(move3);
+
+		ActionMove* move4 = new ActionMove;
+		move4->SetStart(D3DXVECTOR3(-10, 0, -10));
+		move4->SetGoal(D3DXVECTOR3(0, 0, -15));
+		move4->SetDurationTime(1.0f);
+		move4->SetTarget(girl);
+		move4->SetDelegate(sequence);
+		sequence->AddAction(move4);
+
+		ActionMove* move5 = new ActionMove;
+		move5->SetStart(D3DXVECTOR3(0, 0, -15));
+		move5->SetGoal(D3DXVECTOR3(10, 0, -10));
+		move5->SetDurationTime(1.0f);
+		move5->SetTarget(girl);
+		move5->SetDelegate(sequence);
+		sequence->AddAction(move5);
+
+		ActionMove* move6 = new ActionMove;
+		move6->SetStart(D3DXVECTOR3(10, 0, -10));
+		move6->SetGoal(D3DXVECTOR3(10, 0, 10));
+		move6->SetDurationTime(1.0f);
+		move6->SetTarget(girl);
+		move6->SetDelegate(sequence);
+		sequence->AddAction(move6);
+
+		ActionMove* move7 = new ActionMove;
+		move7->SetStart(D3DXVECTOR3(10, 0, 10));
+		move7->SetGoal(D3DXVECTOR3(0, 0, 15));
+		move7->SetDurationTime(1.0f);
+		move7->SetTarget(girl);
+		move7->SetDelegate(sequence);
+		sequence->AddAction(move7);
+
+		ActionMove* move8 = new ActionMove;
+		move8->SetStart(D3DXVECTOR3(0, 0, 15));
+		move8->SetGoal(D3DXVECTOR3(0, 0, 0));
+		move8->SetDurationTime(1.0f);
+		move8->SetTarget(girl);
+		move8->SetDelegate(sequence);
+		sequence->AddAction(move8);
 
 		girl->SetAction(sequence);
 	}

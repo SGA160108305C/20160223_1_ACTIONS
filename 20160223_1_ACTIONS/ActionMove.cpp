@@ -44,6 +44,7 @@ void ActionMove::Update()
 
 	D3DXVECTOR3 pos;
 	D3DXVec3Lerp(&pos, &start, &goal, passedTime / durationTime);
+	//printf_s("pos: %.2f\n", passedTime / durationTime);
 	target->SetPosition(pos);
 }
 
