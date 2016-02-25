@@ -24,34 +24,47 @@ void ActionMove::Start()
 
 	D3DXVECTOR3 a(0,0,1);
 	D3DXVECTOR3 b = goal - start;
+	D3DXVECTOR3 normalB;
+	D3DXVec3Normalize(&normalB, &b);
 
 	float aLength = D3DXVec3Length(&a);
-	float bLength = D3DXVec3Length(&b);
-	float dot = D3DXVec3Dot(&a, &b);
-
+	float bLength = D3DXVec3Length(&normalB);
+	float dot = D3DXVec3Dot(&a, &normalB);//-1 ~ 1
+	//printf_s("dot: %.2f\n", dot);
 	// 시계방향인지 반시계방향인지 판별
 	D3DXVECTOR3 cross;
-	D3DXVec3Cross(&cross, &a, &b);
-	if (cross.y < 0)	
-	{
-		dot *= -1;		// 반시계 방향이다. 그러면 각도가 반대로
-	}
+	D3DXVec3Cross(&cross, &a, &normalB);
+	//if (cross.y < 0)	
+	//{
+	//	dot *= -1;		// 반시계 방향이다. 그러면 각도가 반대로
+	//}
 	
+	if (dot < 0 && cross.y < 0)
+	{
+		dot *= -1;
+	}
+
+	if (dot > 0 && cross.y > 0)
+	{
+		dot *= -1;
+	}
+
 	float angle = acos(dot / (aLength * bLength));	//acos는 0~180도 사이의 값만 나온다.
+	printf_s("angle: %.2f\n", angle);
 
 	//따라서 180도 이상인지 판별
-	D3DXVECTOR3 c(1, 0, 0);	//a를 90도 만큼 돌린 백터
-	bool over180 = false;
-	if (D3DXVec3Dot(&b, &c) < 0.0f)	// c,b가 90도 이상이면 a,b가 180도 이상이라는 소리
-	{
-		over180 = true;
-	}
+	//D3DXVECTOR3 c(1, 0, 0);	//a를 90도 만큼 돌린 백터
+	//bool over180 = false;
+	//if (D3DXVec3Dot(&normalB, &c) < 0.0f)	// c,b가 90도 이상이면 a,b가 180도 이상이라는 소리
+	//{
+	//	over180 = true;
+	//}
 
 	//180도 이상이면 180도를 더해줌
-	if (over180)
+	/*if (over180)
 	{
 		angle += D3DX_PI;
-	}
+	}*/
 
 	target->SetAngle(angle);
 }
