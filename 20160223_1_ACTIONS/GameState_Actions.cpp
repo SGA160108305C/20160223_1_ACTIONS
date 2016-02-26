@@ -129,6 +129,8 @@ void GameState_Actions::OnEnterState()
 {
 	GameManager::GetCamera()->SetDistance(20.0f);
 	Initialize();
+	GameManager::GetCamera()->SetLookTarget(girl->GetPositionAdress());
+
 }
 
 void GameState_Actions::OnLeaveState()

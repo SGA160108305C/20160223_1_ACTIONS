@@ -38,19 +38,21 @@ void ActionMove::Start()
 	//{
 	//	dot *= -1;		// 반시계 방향이다. 그러면 각도가 반대로
 	//}
-	
-	if (dot < 0 && cross.y < 0)
-	{
-		dot *= -1;
-	}
-
-	if (dot > 0 && cross.y > 0)
-	{
-		dot *= -1;
-	}
 
 	float angle = acos(dot / (aLength * bLength));	//acos는 0~180도 사이의 값만 나온다.
-	printf_s("angle: %.2f\n", angle);
+	printf_s("test: %.2f\n", dot);
+
+	if (dot < 0 && cross.y < 0)
+	{
+		angle *= -1;
+	}
+
+	if (dot > 0 && cross.y < 0)
+	{
+		angle *= -1;
+	}
+
+	//angle = -3.14f;
 
 	//따라서 180도 이상인지 판별
 	//D3DXVECTOR3 c(1, 0, 0);	//a를 90도 만큼 돌린 백터
