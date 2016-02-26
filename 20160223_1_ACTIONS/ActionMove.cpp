@@ -24,30 +24,22 @@ void ActionMove::Start()
 
 	D3DXVECTOR3 a(0,0,1);
 	D3DXVECTOR3 b = goal - start;
-	D3DXVECTOR3 normalB;
-	D3DXVec3Normalize(&normalB, &b);
 
 	float aLength = D3DXVec3Length(&a);
-	float bLength = D3DXVec3Length(&normalB);
-	float dot = D3DXVec3Dot(&a, &normalB);//-1 ~ 1
+	float bLength = D3DXVec3Length(&b);
+	float dot = D3DXVec3Dot(&a, &b);//-1 ~ 1
 	//printf_s("dot: %.2f\n", dot);
 	// 시계방향인지 반시계방향인지 판별
 	D3DXVECTOR3 cross;
-	D3DXVec3Cross(&cross, &a, &normalB);
+	D3DXVec3Cross(&cross, &a, &b);
 	//if (cross.y < 0)	
 	//{
 	//	dot *= -1;		// 반시계 방향이다. 그러면 각도가 반대로
 	//}
 
 	float angle = acos(dot / (aLength * bLength));	//acos는 0~180도 사이의 값만 나온다.
-	printf_s("test: %.2f\n", dot);
 
-	if (dot < 0 && cross.y < 0)
-	{
-		angle *= -1;
-	}
-
-	if (dot > 0 && cross.y < 0)
+	if (cross.y < 0)
 	{
 		angle *= -1;
 	}
